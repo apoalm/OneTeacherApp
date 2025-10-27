@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import { I18nManager, Platform } from 'react-native';
-import { Home, BookOpen, User, Settings } from 'lucide-react-native';
+import { Home, BookOpen, User, Settings, GraduationCap } from 'lucide-react-native';
 import { Colors } from '@/constants/theme';
 import { useAuth } from '@/contexts/AuthContext';
 
@@ -20,8 +20,8 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: Colors.background,
           borderTopColor: Colors.border,
-          height: Platform.OS === 'android' ? 70 : 60, // 👈 ارتفاع أعلى لأندرويد
-          paddingBottom: Platform.OS === 'android' ? 12 : 0, // 👈 مساحة أمان للإيماءات
+          height: 60,
+          paddingBottom: 8,
           paddingTop: 8,
         },
         tabBarLabelStyle: {
@@ -44,15 +44,22 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => <BookOpen size={size} color={color} />,
         }}
       />
-      {isTeacher && (
-        <Tabs.Screen
-          name="teacher"
-          options={{
-            title: 'لوحة التحكم',
-            tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
-          }}
-        />
-      )}
+      <Tabs.Screen
+        name="my-lessons"
+        options={{
+          title: 'دروسي',
+          tabBarIcon: ({ color, size }) => <GraduationCap size={size} color={color} />,
+          href: isTeacher ? null : undefined,
+        }}
+      />
+      <Tabs.Screen
+        name="teacher"
+        options={{
+          title: 'لوحة التحكم',
+          tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
+          href: isTeacher ? undefined : null,
+        }}
+      />
       <Tabs.Screen
         name="profile"
         options={{

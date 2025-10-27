@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "منصة التعليم",
-    "slug": "learning-platform",
+    "slug": "appteachergithub",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,11 +9,10 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.learningplatform"
+      "supportsTablet": true
     },
     "android": {
-      "package": "com.oneteacher.learningplatform"
+      "package": "com.oneteacher.appteachergithub"
     },
     "web": {
       "bundler": "metro",
@@ -26,11 +25,8 @@
     },
     "extra": {
       "eas": {
-        "projectId": "825995a3-eef4-48ab-84b7-13c443cdd118"
+        "projectId": "appteachergithub"
       }
-    },
-    "description": "منصة تعليمية عربية - تطبيق React Native",
-    "sdkVersion": "54.0.0",
-    "platforms": ["ios", "android", "web"]
+    }
   }
 }

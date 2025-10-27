@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { I18nManager } from 'react-native';
+import { I18nManager, Platform } from 'react-native';
 import { Home, BookOpen, User, Settings } from 'lucide-react-native';
 import { Colors } from '@/constants/theme';
 import { useAuth } from '@/contexts/AuthContext';
@@ -20,8 +20,8 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: Colors.background,
           borderTopColor: Colors.border,
-          height: 60,
-          paddingBottom: 8,
+          height: Platform.OS === 'android' ? 70 : 60, // 👈 ارتفاع أعلى لأندرويد
+          paddingBottom: Platform.OS === 'android' ? 12 : 0, // 👈 مساحة أمان للإيماءات
           paddingTop: 8,
         },
         tabBarLabelStyle: {
